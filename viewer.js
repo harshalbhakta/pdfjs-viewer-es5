@@ -2236,7 +2236,7 @@ function webViewerInitialized() {
   var queryString = document.location.search.substring(1);
   var params = (0, _ui_utils.parseQueryString)(queryString);
   file = "file" in params ? params.file : _app_options.AppOptions.get("defaultUrl");
-  validateFileURL(file);
+  // validateFileURL(file);
   var fileInput = document.createElement("input");
   fileInput.id = appConfig.openFileInputName;
   fileInput.className = "fileInput";
@@ -4810,7 +4810,7 @@ var defaultOptions = {
     kind: OptionKind.WORKER
   },
   workerSrc: {
-    value: "../build/pdf.worker.js",
+    value: "https://cdn.jsdelivr.net/gh/mozilla/pdfjs-dist@v2.5.207/es5/build/pdf.worker.min.js",
     kind: OptionKind.WORKER
   }
 };
@@ -4948,7 +4948,7 @@ var pdfjsLib;
 if (typeof window !== "undefined" && window["pdfjs-dist/build/pdf"]) {
   pdfjsLib = window["pdfjs-dist/build/pdf"];
 } else {
-  pdfjsLib = require("../build/pdf.js");
+  pdfjsLib = require("https://cdn.jsdelivr.net/gh/mozilla/pdfjs-dist@v2.5.207/es5/build/pdf.min.js");
 }
 
 module.exports = pdfjsLib;
